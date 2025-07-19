@@ -1,1 +1,98 @@
 <!-- Placeholder for index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizzaria Delícia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Pizzaria Delícia</h1>
+    <p>A pizza mais saborosa da cidade, direto do forno para você 🍕🔥</p>
+  </div>
+
+  <section id="sobre">
+    <h2 style="text-align:center">Sobre Nós</h2>
+    <p style="text-align:center">Desde 1995, entregando qualidade, tradição e muito sabor para sua mesa.</p>
+  </section>
+
+  <section id="produtos">
+    <h2 style="text-align:center">Sabores de Pizza</h2>
+    <div class="produtos" id="lista-produtos"></div>
+  </section>
+
+  <section>
+    <h2 style="text-align:center">Bebidas</h2>
+    <div class="produtos">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1619533394726-40a835403e96?auto=format&fit=crop&w=800&q=80" alt="Coca-Cola">
+        <div class="card-content">
+          <h3>Coca-Cola 2L</h3>
+          <span class="preco">R$ 10,00</span>
+          <button onclick="adicionarAoCarrinho('Coca-Cola 2L', 10)">Adicionar</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1626082892109-bd4d7e5c6e19?auto=format&fit=crop&w=800&q=80" alt="Guaraná">
+        <div class="card-content">
+          <h3>Guaraná Antártica 2L</h3>
+          <span class="preco">R$ 9,00</span>
+          <button onclick="adicionarAoCarrinho('Guaraná 2L', 9)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2 style="text-align:center">Fale Conosco</h2>
+    <form onsubmit="enviarEmail(event)">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <section>
+    <h2 style="text-align:center">Nossa Localização</h2>
+    <div style="width:100%;height:400px">
+      <iframe
+        src="https://www.google.com/maps?q=Rua%20Benjamim%20Elidio%20Faria,%20215%20Vila%20Montanhesa,%20Juiz%20de%20Fora%20MG&output=embed"
+        width="100%" height="100%" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pizzaria Delícia. Todos os direitos reservados.</p>
+  </footer>
+
+  <a class="whatsapp-btn" href="https://wa.me/5532991992905" target="_blank">💬 WhatsApp</a>
+
+  <button id="abrir-carrinho">🛒 Carrinho (<span id="quantidade-itens">0</span>)</button>
+
+  <div id="carrinho" class="carrinho-lateral">
+    <div class="carrinho-cabecalho">
+      <h3>Seu Carrinho</h3>
+      <button onclick="fecharCarrinho()">✖</button>
+    </div>
+    <ul id="itens-carrinho"></ul>
+    <p>Total: R$ <span id="total-carrinho">0.00</span></p>
+    <button onclick="enviarPedidoWhatsApp()">Finalizar Pedido via WhatsApp</button>
+  </div>
+
+</body>
+</html>
